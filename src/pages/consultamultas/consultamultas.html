@@ -1,0 +1,43 @@
+<ion-header>
+  
+    <ion-navbar>
+      <img src="assets/logo.png" style="height: 50px;">
+      <img src="assets/ihtt.png" style="height: 50px;float: right;">
+    </ion-navbar>
+    <ion-toolbar class="titles">
+      <ion-buttons end>
+        <button ion-button icon-only (click)="presentPopover($event)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Multas Realizadas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content padding>
+
+
+      
+    <ion-list>
+
+       <ion-item-sliding *ngFor="let Multa of Multas; let i = index">
+         <ion-item >
+            <h2>{{Multa.ID_Multas}}</h2>
+            <p>{{Multa.Nombre_Conductor}}</p>
+            <ion-note item-end>12/11/2017</ion-note>
+         </ion-item>
+         <ion-item-options side="right" icon-left>
+            <button ion-button color="dark" (tap)="ImprimirMulta('MULTA-1-0004')">
+                <ion-icon name="md-print"></ion-icon>
+                Imprimir
+              </button>
+         </ion-item-options>
+       </ion-item-sliding>
+     </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar>
+    <img src="assets/logo.png" style="height: 50px;">
+    <img src="assets/ihtt.png" style="height: 50px;float: right;">
+  </ion-navbar>
+  <ion-toolbar class="titles">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Configuración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ul id="certify" class="collection with-header headercontainers">
+        <li id="certify2" class="collection-header bodycontainer3" style=" color: white; ">
+          <h5 class="h5requi" style="text-align: center;padding-top: 1rem;">Impresora Seleccionada</h5>
+        </li>
+        <li style=" margin: 9px; ">
+
+          <ion-list>
+            <ion-item>
+              Nombre
+              <button ion-button outline item-end icon-left>
+                  {{selectedPrinter.name}}
+              </button>
+            </ion-item>
+
+            <ion-item>
+                Address
+                <button ion-button outline item-end icon-left>
+                    {{selectedPrinter.address}}
+                </button>
+              </ion-item>
+
+              <ion-item>
+                  Class
+                  <button ion-button outline item-end icon-left>
+                      {{selectedPrinter.class}}
+                  </button>
+                </ion-item>
+
+                <ion-item>
+                    <!-- <button ion-item (tap)="listBTDevice()">
+                      Seleccionar Impresora
+                    </button> -->
+
+                    <button ion-button full (tap)="listBTDevice()">
+                        Seleccionar Impresora
+                    </button>
+
+
+                  </ion-item>
+
+
+          </ion-list>
+
+        </li>
+      </ul>
+
+</ion-content>

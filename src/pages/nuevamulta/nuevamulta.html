@@ -1,0 +1,262 @@
+<ion-header>
+
+  <ion-navbar>
+    <img src="assets/logo.png" style="height: 50px;">
+    <img src="assets/ihtt.png" style="height: 50px;float: right;">
+  </ion-navbar>
+  <ion-toolbar class="titles">
+    
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nueva Multa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+   <form (ngSubmit)="FiltroGeneral()" >
+      <ion-searchbar [(ngModel)]="Buscar"  name="Buscar"  typr="text"   placeholder="Placa, VIN o Certificado"  > </ion-searchbar>
+   </form>
+
+
+
+
+
+  <ion-card class="cardmulta" *ngIf="Estado == 0 "> 
+    <ion-card-content>
+      <p>Por favor ingrese un certificado, Placa o Vin para continuar. {{longitude}} -- {{lattitud}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardmulta" *ngIf="Estado == 3 "> 
+    <ion-card-content>
+      <p class="redmulta">Sin resultados en base de datos</p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+<!--Contenido detalle busqueda -->
+
+
+<ion-card class="cardmulta" [hidden]="lastImage === null">
+    <ion-card-content>
+      <img src="{{lastImage}}" />
+    </ion-card-content>
+
+    <ion-item>
+      Archivo de respaldo
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card class="cardmulta2" *ngIf="Estado == 1" >
+    <ion-card-content class="tipoinfraccion texcenter">
+        <div>
+          Infracciones Generadas 
+        </div>
+    </ion-card-content>
+  </ion-card>
+
+<ion-row  *ngIf="Estado == 1 ">
+  <ion-col col-4> 
+    <ion-card class="cardmulta2 leve" >
+      <ion-card-content class="tipoinfraccion texcenter">
+          <div>
+           LEVES
+          </div>
+        <ion-badge item-end>{{Leves}}</ion-badge>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+
+  <ion-col col-4> 
+    <ion-card class="cardmulta2 grave" >
+      <ion-card-content class="tipoinfraccion texcenter">
+          <div>
+           GRAVES
+          </div>
+        <ion-badge item-end>{{Graves}}</ion-badge>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+
+  <ion-col col-4> 
+    <ion-card class="cardmulta2 muygrave" >
+      <ion-card-content class="tipoinfraccion texcenter">
+          <div>
+           MUY GRAVES
+          </div>
+        <ion-badge item-end>{{MGraves}}</ion-badge>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+
+</ion-row>
+
+<div *ngIf="Estado == 1">  
+<ion-card class="cardmulta2" *ngFor="let post of Unida" >
+      <ion-card-header>
+          Datos de la Empresa
+      </ion-card-header>
+      <ion-item class="border-bottom">
+         Empresa
+        <ion-note item-end>
+        {{post.n_empresa}}
+        </ion-note>
+      </ion-item>
+      <ion-item class="border-bottom">
+         RTN
+        <ion-note item-end>
+        {{post.rtn_iden}}
+        </ion-note>
+      </ion-item>
+
+</ion-card>
+
+<ion-card class="cardmulta" *ngFor="let post of Unida"  >
+<ion-card-header>
+    Datos de la Unidad
+</ion-card-header>
+
+  <ion-card-content>
+<ion-list>
+      <ion-item class="border-bottom">
+         Certificado
+        <ion-note item-end>
+        {{post.certificado}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item class="border-bottom">
+         Censo
+        <ion-note item-end>
+        {{post.Censo}}
+        </ion-note>
+      </ion-item>
+
+
+      <ion-item class="border-bottom">
+         VIN
+        <ion-note item-end>
+        {{post.n_serie}}
+        </ion-note>
+      </ion-item>
+
+
+
+       <ion-item class="border-bottom">
+         Placa
+        <ion-note item-end>
+        {{post.n_placa}}
+        </ion-note>
+      </ion-item>
+
+
+       <ion-item class="border-bottom">
+         Marca
+        <ion-note item-end>
+         {{post.n_marca}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item class="border-bottom">
+         Color
+        <ion-note item-end>
+         {{post.n_color}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item class="border-bottom">
+         Nº Registro
+        <ion-note item-end>
+         {{post.n_registro}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item class="border-bottom">
+         Año
+        <ion-note item-end>
+         {{post.n_year}}
+        </ion-note>
+      </ion-item>
+
+
+
+      <ion-item class="border-bottom">
+         Tipo
+        <ion-note item-end>
+         {{post.t_vehiculo}}
+        </ion-note>
+      </ion-item>
+</ion-list>
+
+
+
+
+  </ion-card-content>
+</ion-card>
+
+</div>
+<!--fin detalle busqueda -->
+<ion-card class="cardmulta2" *ngIf="Estado == 1" >
+    <ion-card-content class="tipoinfraccion texcenter">
+        <div>
+          Agregar Multa 
+        </div>
+    </ion-card-content>
+  </ion-card>
+<form (ngSubmit)="SaveNuevaMulta()" #NuevaMulta="ngForm" >
+  <div style="color:red; padding: 10px;" *ngIf="Estado == 1" >Todos los campos son obligatorios </div>
+  <ion-list *ngIf="Estado == 1 ">
+        <ion-item>
+              <ion-label>Tipo Infracción</ion-label>
+              <ion-select required name="tipo" [(ngModel)]="TInfraccion" (ngModelChange)="TipoInfraccion($event)"   interface="popover">
+                <ion-option value="1">Art.80 Muy Grave</ion-option>
+                <ion-option value="2">Art.82 Grave</ion-option>
+                <ion-option value="3">Art.83 leve</ion-option>
+              </ion-select>
+            </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="Estado == 1 ">
+        <ion-item>
+              <ion-label>Descripción</ion-label>
+              <ion-select name="desc" required [(ngModel)]="Nmultas.Descripcion">
+                
+                <ion-option *ngFor="let poste of DInfraccion"  value="{{poste.Numero}}">{{poste.DESC}}</ion-option>
+                
+              </ion-select>
+            </ion-item>
+          <ion-item class="border">
+            <ion-label stacked>Observación</ion-label>
+              <ion-textarea [(ngModel)]="Nmultas.Observacion" required rows="7" name="comment" placeholder="Observación de la multa "></ion-textarea>
+          </ion-item> 
+
+
+            <button  [disabled]="!NuevaMulta.form.valid" ion-button full type="submit">Realizar Multa</button>
+    </ion-list>
+</form>
+
+
+
+
+<ion-fab right bottom edge *ngIf="Estado == 1">
+    <button (click)="imagendata()"  ion-fab color="blue"><ion-icon name="camera"></ion-icon></button>
+  </ion-fab>
+
+
+</ion-content>
+
+                                   
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

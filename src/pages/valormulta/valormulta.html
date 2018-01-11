@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <img src="assets/logo.png" style="height: 50px;">
+    <img src="assets/ihtt.png" style="height: 50px;float: right;">
+  </ion-navbar>
+  <ion-toolbar class="titles">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Configuración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ul id="certify" class="collection with-header headercontainers">
+        <li id="certify2" class="collection-header bodycontainer3" style=" color: white; ">
+          <h5 class="h5requi" style="text-align: center;padding-top: 1rem;">Valores Seleccionados</h5>
+        </li>
+        <li style=" margin: 9px; ">
+
+          <ion-list>
+            <ion-item *ngFor="let Valor of Valores;" >
+              <h2 *ngIf="Valor.ID_Tipo == '1'">Muy Grave</h2>
+              <h2 *ngIf="Valor.ID_Tipo == '2'">Grave</h2>
+              <h2 *ngIf="Valor.ID_Tipo == '3'">Leve</h2>
+              <h3>{{Valor.N_Incidencia}} Vez</h3>
+
+              <button ion-button outline item-end icon-left>
+                L. {{Valor.Valor * Valor.Proporcion_Minimo | number: '2.2-2'}}
+              </button>
+            </ion-item>
+
+
+
+                <ion-item>
+                    <!-- <button ion-item (tap)="listBTDevice()">
+                      Seleccionar Impresora
+                    </button> -->
+
+                    <button ion-button full (tap)="TipoInfraccion()">
+                        Actualizar Valores
+                    </button>
+
+
+                  </ion-item>
+
+
+          </ion-list>
+
+        </li>
+      </ul>
+
+</ion-content>

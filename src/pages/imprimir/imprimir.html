@@ -1,0 +1,99 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comprobante de multa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <table class="tables">
+      	<thead>
+      		<tr>
+      			<th colspan="2" class="titleth" >Comprobante de multa</th>
+      		</tr>
+          <tr>
+            <th colspan="2" class="CodigoMulta" >{{multa}}</th>
+          </tr>
+          <tr>
+            <td>Fecha y hora:</td>
+            <td>2017-09-20 15:00:00</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="datos" >Datos del conceci&oacute;n</th>
+          </tr>
+          <tr>
+            <td>Nombre:</td>
+            <td>{{Multas['n_empresa']}}</td>
+          </tr>
+          <tr>
+            <td>Identificación:</td>
+            <td>{{Multas['rtn_iden']}}</td>
+          </tr>
+          <tr>
+            <td>Certificado Operación:</td>
+            <td>{{Multas['certificado']}}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="datos" >Datos de la unidad</th>
+          </tr>
+          <tr>
+            <td>Marca:</td>
+            <td>{{Multas['n_marca']}}</td>
+          </tr>
+          <tr>
+            <td>Color:</td>
+            <td>{{Multas['n_color']}}</td>
+          </tr>
+          <tr>
+            <td>VIN:</td>
+            <td>{{Multas['n_serie']}}</td>
+          </tr>
+          <tr>
+            <td>Placa:</td>
+            <td>{{Multas['n_placa']}}</td>
+          </tr>
+          <tr>
+            <td>Nº Registro:</td>
+            <td>{{Multas['n_registro']}}</td>
+          </tr>
+          <tr>
+            <td>Año</td>
+            <td>{{Multas['n_year']}}</td>
+          </tr>
+          
+          <tr>
+            <th colspan="2" class="datos" >Datos de la Infracci&oacute;n</th>
+          </tr>
+          <tr>
+            <td>Infracci&oacute;n:</td>
+            <td>{{Infraccion}}</td>
+          </tr>
+          <tr>
+            <td>Reincidencia</td>
+            <td>{{N_Reincidencia}} Vez</td>
+          </tr>
+          <tr>
+           <td>Observaciones:</td>
+           <td>{{Observacion}}</td>
+          </tr>
+          <tr>
+            <th colspan="2" style="text-align: right;" class="datos" >Valor L. {{valor}}**</th>
+          </tr>
+          <tr>
+           <td colspan="2">*En caso de decomiso de unidad, se impone un cobro por
+parqueo de L. 50.00 diarios</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">
+              <img style="width: 145px;" [src]="img" alt="">
+            </td>
+          </tr>
+
+
+      	</thead>
+      	
+      </table>
+</ion-content>

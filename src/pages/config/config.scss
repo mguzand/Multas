@@ -1,0 +1,51 @@
+page-config {
+    .headercontainers {
+        border-radius: 12px !important;
+        border: solid 1px #00377b !important;
+        /* padding: 10px 20px; */
+    }
+
+    .collection.with-header .collection-header {
+        background-color: #fff;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 10px 20px;
+    }
+    .bodycontainer3 {
+        background: #00377b !important;
+        padding: 5px 20px !important;
+    }
+    ul li {
+        list-style-type: none;
+    }
+    ul, menu, dir {
+        display: block;
+        list-style-type: disc;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+    }
+    ul {
+        padding: 0;
+    }
+    
+    ul {
+        list-style-type: none;
+    }
+
+     
+    .headercontainers {
+        border-radius: 12px !important;
+        border: solid 1px #00377b !important;
+        /* padding: 10px 20px; */
+    }
+
+    .collection {
+        margin: 1.5rem 0 2rem 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+    }
+}

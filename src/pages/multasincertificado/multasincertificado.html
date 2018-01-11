@@ -1,0 +1,192 @@
+<ion-header>
+
+  <ion-navbar>
+    <img src="assets/logo.png" style="height: 50px;">
+    <img src="assets/ihtt.png" style="height: 50px;float: right;">
+  </ion-navbar>
+  <ion-toolbar class="titles">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Multa Sin Certificado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="color:red; padding: 10px;">Todos los campos son obligatorios </div>
+  <form (ngSubmit)="SaveNuevaMulta()" #NuevaMulta="ngForm">
+
+
+
+
+
+
+    <ul id="certify" class="collection with-header headercontainers">
+      <li id="certify2" class="collection-header bodycontainer3" style=" color: white; ">
+        <h5 class="h5requi" style="text-align: center;padding-top: 1rem;">Datos de la Unidad</h5>
+      </li>
+      <li style=" margin: 9px; ">
+        <div class="input-field cols col s12 m12 l12">
+          <ion-input type="text" [(ngModel)]="Placa"  (blur)="BuscarPlacas()" placeholder="Placa" name="Placa" class="text" required></ion-input>
+          <ion-input type="text" [(ngModel)]="Nmultas.VIN" placeholder="VIN" name="VIN" class="text" required></ion-input>
+          <ion-input type="text" [(ngModel)]="Nmultas.Marca" placeholder="Marca" name="Marca" class="text" required></ion-input>
+          <ion-input type="text" [(ngModel)]="Nmultas.Color" placeholder="Color" name="Color" class="text" required></ion-input>
+          <ion-input type="number" [(ngModel)]="Nmultas.Anio" placeholder="Año" name="Anio" class="text" required></ion-input>
+          <ion-input type="text" [(ngModel)]="Nmultas.Modelo" placeholder="Modelo" name="Modelo" class="text" required></ion-input>
+
+        </div>
+
+      </li>
+    </ul>
+
+
+
+
+
+    <ul id="certify" class="collection with-header headercontainers">
+        <li id="certify2" class="collection-header bodycontainer3" style=" color: white; ">
+          <h5 class="h5requi" style="text-align: center;padding-top: 1rem;">Datos del Piloto</h5>
+        </li>
+        <li style=" margin: 9px; ">
+          <div class="input-field cols col s12 m12 l12">
+            <ion-input [(ngModel)]="Nmultas.Nombre" type="text" placeholder="Piloto"  name="Piloto" class="text" required></ion-input>
+            <ion-input [(ngModel)]="Nmultas.Identidad" type="text" placeholder="Identidad" name="Identidad" class="text" required></ion-input>
+          </div>
+  
+        </li>
+      </ul>
+
+
+
+
+      <ion-card class="cardmulta2"  >
+        <ion-card-content class="tipoinfraccion texcenter">
+            <div>
+              Infracciones Generadas 
+            </div>
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-row  *ngIf="Estado == 1 ">
+        <ion-col col-4> 
+          <ion-card class="cardmulta2 leve" >
+            <ion-card-content class="tipoinfraccion texcenter">
+                <div>
+                 LEVES
+                </div>
+              <ion-badge item-end>{{Leves}}</ion-badge>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      
+      
+        <ion-col col-4> 
+          <ion-card class="cardmulta2 grave" >
+            <ion-card-content class="tipoinfraccion texcenter">
+                <div>
+                 GRAVES
+                </div>
+              <ion-badge item-end>{{Graves}}</ion-badge>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      
+      
+        <ion-col col-4> 
+          <ion-card class="cardmulta2 muygrave" >
+            <ion-card-content class="tipoinfraccion texcenter">
+                <div>
+                 MUY GRAVES
+                </div>
+              <ion-badge item-end>{{MGraves}}</ion-badge>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      
+      
+      </ion-row>
+
+    <ul id="certify" class="collection with-header headercontainers">
+      <li id="certify2" class="collection-header bodycontainer3" style=" color: white; ">
+        <h5 class="h5requi" style="text-align: center;padding-top: 1rem;">Datos de la Infracci&oacute;n </h5>
+      </li>
+
+
+
+      <li style=" margin: 9px; ">
+        <ion-list>
+          <ion-item>
+            <ion-label>Tipo Infracción</ion-label>
+            <ion-select required name="tipo" [(ngModel)]="TInfraccion" (ngModelChange)="TipoInfraccion($event)" interface="popover">
+              <ion-option value="1">Art.80 Muy Grave</ion-option>
+              <ion-option value="2">Art.82 Grave</ion-option>
+              <ion-option value="3">Art.83 leve</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>Descripción</ion-label>
+            <ion-select name="desc" required [(ngModel)]="Nmultas.Descripcion">
+
+              <ion-option *ngFor="let poste of DInfraccion" value="{{poste.Numero}}">{{poste.DESC}}</ion-option>
+
+            </ion-select>
+          </ion-item>
+          <ion-item class="border">
+            <ion-label stacked>Observación</ion-label>
+            <ion-textarea [(ngModel)]="Nmultas.Observacion" required rows="7" name="comment" placeholder="Observación de la multa "></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </li>
+    </ul>
+
+    <ul id="certify" class="collection with-header headercontainers">
+      <li id="certify2" class="collection-header bodycontainer3" style=" color: white; ">
+        <h5 class="h5requi" style="text-align: center;padding-top: 1rem;">Decomisos</h5>
+      </li>
+      <li style=" margin: 9px; ">
+        <!-- <a ion-button round (click)="showCheckbox()">Documentos</a>
+        <a ion-button color="secondary" round (click)="showCheckbox()">Documentos</a> -->
+        <ion-item>
+          <ion-label>Vehiculo</ion-label>
+          <ion-select name="Vehiculo" [(ngModel)]="Nmultas.Vehiculo">
+            <ion-option value="1">SI</ion-option>
+            <ion-option  value="2"  selected="true">NO</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Documentos</ion-label>
+          <ion-select name="Documentos"  multiple="true" [(ngModel)]="Nmultas.Documentos">
+            <ion-option value="1">Certificado Operación</ion-option>
+            <ion-option value="2">Permiso Explotación</ion-option>
+            <ion-option value="3">Censo</ion-option>
+            <ion-option value="4">Licencia</ion-option>
+            <ion-option value="5">Revisión</ion-option>
+            <ion-option value="6">Permiso Eventual</ion-option>
+          </ion-select>
+        </ion-item>
+
+
+
+
+
+
+
+      </li>
+    </ul>
+    
+
+    <button [disabled]="!NuevaMulta.form.valid" ion-button full type="submit">Realizar Multa</button>
+    
+  </form>
+  
+
+
+</ion-content>

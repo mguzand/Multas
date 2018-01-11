@@ -1,0 +1,50 @@
+page-imprimirmulta {
+    .bar-button-default-md {
+        color: #fff;
+      }
+      .toolbar-title-md {
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 21px;
+    }
+       .carheade{
+               background: #ffc20f;
+        text-align: center;
+        color: #00377b;
+        font-size: 19px;
+       }
+       .titleth{
+           text-align: center;
+        padding: 10px;
+        background: #e6e6e6;
+        border: solid 1px #ccc;
+        font-size: 11px;
+       }
+    
+    
+       .CodigoMulta{
+           text-align: right;
+        padding: 5px;
+        font-size: 11px;
+       }
+    
+       .datos {
+        text-align: center;
+        padding: 10px;
+        background: rgba(230, 230, 230, 0.2);
+        border: solid 1px rgba(0, 0, 0, 0.19);
+        font-size: 11px;
+    }
+    
+    tr td {
+        padding-bottom: 5px;
+        color: #505050;
+            font-size: 11px;
+    }
+    
+    .tables{
+        width: 8cm;
+        border: solid 2px #b7b7b7;
+        margin: 0 auto;
+    }
+}

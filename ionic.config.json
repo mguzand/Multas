@@ -1,0 +1,8 @@
+{
+  "name": "Multas",
+  "app_id": "26bb9965",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

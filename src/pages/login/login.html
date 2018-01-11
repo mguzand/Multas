@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <div style="text-align: center;">
+      <img src="assets/ihtt.png" style="height: 58px;">
+    </div>
+  </ion-navbar>
+  
+</ion-header>
+ 
+
+
+<ion-content class="bg-login">
+
+<ion-grid class="bg-fondo">
+  <ion-row>
+    <ion-col offset-2 col-8></ion-col>
+  </ion-row>
+</ion-grid>
+
+
+    <form (ngSubmit)="iniciarSesion()" #inicioSesionForm="ngForm" >
+        <ul id="certify" class="collection with-header headercontainers" style="margin: 10px">
+          <li id="certify2" class="collection-header bodycontainer3">
+            <h5 class="h5requi" style="text-align: center;"><img src="assets/logo.png" alt="multa" style="width: 131px;"></h5>
+        </li>  
+          <div class="input-field cols col s12 m12 l12" padding>
+            <ion-input [(ngModel)]="credenciales.usuario" type="text" placeholder="Usuario" name="usuario" class="text" required ></ion-input>
+            <ion-input [(ngModel)]="credenciales.contrasena" type="password" placeholder="Contraseña" name="contrasena" class="text"  required></ion-input>
+          </div>
+
+          <div padding>
+                <button [disabled]="!inicioSesionForm.form.valid" ion-button block type="submit">Entrar</button>
+            </div>
+
+
+        </ul>
+
+    </form> 
+
+
+
+    <!-- <ion-footer>
+<ion-toolbar style="color: #4e6c92">
+    <span>Director: Juan Alex Garcia Paredes</span><br>
+    <span>Programador: Manuel Orlando Guzman Doblado</span>
+  </ion-toolbar>
+</ion-footer> -->

@@ -1,0 +1,28 @@
+<ion-menu [content]="Multamenu" class="menuss">
+  <ion-header class="headermenu">
+
+   <img [src]="foto" class="avatar motion spin fade" style="width: 65px;float: left; margin-right: 10px; border-right: solid 5px #ffffff;     border-bottom: solid 5px #ffffff;">
+   <div >
+   	 <div class="menu-bottom2 cargo">
+   	 	{{nombres}}
+   	 </div>
+   	 <div class="menu-bottom cargo">
+   	 	{{Cargo}}
+   	 </div>
+   </div>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}    <ion-icon class="icomenu" name="ios-arrow-forward"></ion-icon>
+      </button>
+      <button ion-item (click)="CerrarSesion()" >
+        Cerrar Sesion   <ion-icon class="icomenu" name="md-lock"></ion-icon>
+      </button>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #Multamenu [root]="rootPage"></ion-nav>

@@ -1,0 +1,311 @@
+<!--
+  Generated template for the DetallecensoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalle de Censo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+    
+
+
+
+<ion-content >
+    <ion-card  class="bpase" *ngFor="let post of DMulta" >   
+        <ion-card-title class="carheade contenidocard" style=" background: red; color: white; ">Multa Pendiente
+        </ion-card-title>
+        <ion-list>
+            
+            
+            <ion-item >
+                Infracci&oacute;n  
+              <ion-note item-end>
+                {{post.DESC_Infraccion}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+                Dias Transcurridos  
+              <ion-note item-end>
+                {{post.diasTranscurridos}}
+              </ion-note>
+            </ion-item>
+
+
+            <ion-item >
+                Dias Disponible  
+              <ion-note item-end>
+                {{post.dias}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+                Observaci&oacute;n  
+              <ion-note item-end>
+                {{post.Observacion}}
+              </ion-note>
+            </ion-item>
+
+
+
+
+
+        </ion-list>
+    </ion-card>
+
+
+    <ion-card  class="bpase">    
+        <ion-card-title class="carheade contenidocard"  >Censo
+        </ion-card-title>
+        <ion-list>
+            
+            
+                  <ion-item >
+                     N&uacute;mero de Censo  
+                    <ion-note item-end>
+                     {{Multas['codigoCenso']}}
+                    </ion-note>
+                  </ion-item>
+        </ion-list>
+    </ion-card>
+
+
+
+
+
+  <ion-card  class="bpase">    
+	    <ion-card-title class="carheade contenidocard" >Datos del Titular
+	    </ion-card-title>
+
+
+   <ion-list>
+
+
+      <ion-item >
+         Identidad 
+        <ion-note item-end>
+         {{Multas['IdentidadTitular']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         RTN 
+        <ion-note item-end >
+         {{Multas['RTN_Titular']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Nombre <br>
+        <ion-note style="white-space: normal;">
+          {{Multas['Nombre_Titular']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Móvil 
+        <ion-note item-end>
+        {{Multas['Movil_Titular']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Correo 
+        <ion-note item-end>
+         {{Multas['Correo_Titular']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Dirección <br>
+        <ion-note style="white-space: normal;">
+        {{Multas['Direccion_Titular']}}
+        </ion-note>
+      </ion-item>
+
+
+
+  </ion-list>
+
+ </ion-card>
+
+ <ion-card  class="bpase">    
+	    <ion-card-title class="carheade contenidocard" >Permiso de Explotación
+	    </ion-card-title>
+
+
+   <ion-list>
+	   <ion-item >
+         Permiso Explotación	 
+        <ion-note item-end>
+        {{Multas['Permiso_Explotacion']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         RTN Concesionario	 
+        <ion-note item-end>
+        {{Multas['RTN_Concesionario']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Permiso Explotación	 
+        <ion-note item-end>
+        {{Multas['Permiso_Explotacion']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Concesionario	<br> 
+        <ion-note style="white-space: normal;">
+        {{Multas['Nombre_Concesionario']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Expediente	 
+        <ion-note item-end>
+        {{Multas['Expediente_Permiso']}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item >
+         Emisión	 
+        <ion-note item-end>
+       {{Multas['fechaCenso']}}
+        </ion-note>
+      </ion-item>
+   </ion-list>
+ </ion-card>
+
+
+
+
+  <ion-card  class="bpase">    
+      <ion-card-title class="carheade contenidocard" >Certificado de Operaci&oacute;n
+      </ion-card-title>
+         <ion-list>
+            <ion-item >
+               Certificado 
+              <ion-note item-end>
+              {{Multas['Certificado_Operacion']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Expediente   
+              <ion-note item-end>
+              {{Multas['Expediente_Certificado']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Categoria  
+              <ion-note item-end>
+              {{Multas['Modalidad_Servicio']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Ruta   
+              <ion-note item-end>
+              {{Multas['Ruta_Certificado']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Registro   
+              <ion-note item-end>
+              {{Multas['Numero_Registro']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Area de operaci&oacute;n   
+              <ion-note item-end>
+              {{Multas['Area_Operacion']}}
+              </ion-note>
+            </ion-item>
+         </ion-list>
+ </ion-card>
+
+
+  <ion-card  class="bpase">    
+      <ion-card-title class="carheade contenidocard" >Datos del Veh&iacute;culo
+      </ion-card-title>
+         <ion-list>
+            <ion-item >
+               RTN 
+              <ion-note item-end>
+              {{Multas['RTN_Propietario']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Propietario 
+              <ion-note item-end>
+              {{Multas['Nombre_Propietario']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Placa 
+              <ion-note item-end>
+              {{Multas['Placa']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Marca 
+              <ion-note item-end>
+              {{Multas['Marca']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Motor 
+              <ion-note item-end>
+              {{Multas['Motor']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Chasis 
+              <ion-note item-end>
+              {{Multas['Chasis']}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item >
+               Color 
+              <ion-note item-end>
+              {{Multas['Color']}}
+              </ion-note>
+            </ion-item>
+
+
+            <ion-item >
+               Año 
+              <ion-note item-end>
+              {{Multas['Anio']}}
+              </ion-note>
+            </ion-item>
+
+</ion-list>
+
+ </ion-card>
+
+
+
+
+
+
+</ion-content>

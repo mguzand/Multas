@@ -1,0 +1,117 @@
+<ion-header>
+
+  <ion-navbar>
+    <img src="assets/logo.png" style="height: 50px;">
+    <img src="assets/ihtt.png" style="height: 50px;float: right;">
+  </ion-navbar>
+  <ion-toolbar class="titles">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+<ion-grid>
+  <ion-row>
+<ion-col col-6> 
+    <ion-card class="borderradiocard lefthome" (click)="NewPage()" >
+      <ion-card-content class="texcenter">
+        <ion-icon class="iconstyle iconcertificado" name="md-add-circle" isActive="false"></ion-icon>
+        <div class="texicohome iconcertificadotext"> Nueva Multa con Certificado</div>
+      </ion-card-content>
+    </ion-card>
+</ion-col>
+
+
+
+<ion-col col-6> 
+    <ion-card class="borderradiocard righthome" (click)="NewPageMulta()">
+      <ion-card-content class="texcenter">
+        <ion-icon class="iconstyle iconcertificado" name="md-add" isActive="false"></ion-icon>
+        <div class="texicohome iconcertificadotext">Nueva Multa sin Certificado</div>
+      </ion-card-content>
+    </ion-card>
+</ion-col>
+
+<ion-col col-6> 
+    <ion-card class="borderradiocard lefthome" (click)="showPrompt('Certificado')" >
+      <ion-card-content class="texcenter">
+        <ion-icon class="iconstyle" name="md-search" isActive="false"></ion-icon>
+        <div class="texicohome "> Consultar Certificado</div>
+      </ion-card-content>
+    </ion-card>
+</ion-col>
+
+<ion-col col-6> 
+    <ion-card class="borderradiocard righthome" (click)="showPrompt('Placa')" >
+      <ion-card-content class="texcenter">
+        <ion-icon class="iconstyle" name="md-search" isActive="false"></ion-icon>
+        <div class="texicohome">Consultar Placa</div>
+      </ion-card-content>
+    </ion-card>
+</ion-col>
+
+
+<ion-col col-6> 
+    <ion-card class="borderradiocard lefthome" (click)="scanCode()">
+      <ion-card-content class="texcenter">
+        <ion-icon class="iconstyle" name="qr-scanner" isActive="false"></ion-icon>
+        <div class="texicohome">Escanear Codigo</div>
+      </ion-card-content>
+    </ion-card>
+</ion-col>
+
+<ion-col col-6> 
+  <ion-card class="borderradiocard righthome" (click)="MultasRealizadas()" >
+    <ion-card-content class="texcenter">
+      <ion-icon class="iconstyle" name="ios-folder" isActive="false"></ion-icon>
+      <div class="texicohome">Multas Realizadas</div>
+    </ion-card-content>
+  </ion-card>
+</ion-col>
+
+
+
+
+
+
+<!--(click)="NewPageValidate()"
+
+
+
+
+ <ion-col offset-2 col-8> 
+<canvas baseChart
+              [data]="pieChartData"
+          
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</ion-col> -->
+
+
+
+
+
+  </ion-row>
+</ion-grid>
+
+
+ 
+</ion-content>
+
+
+
+
